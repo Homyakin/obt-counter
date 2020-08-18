@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class BotConfiguration {
     private String token;
     private String username;
+    private Long adminId;
 
     public String getToken() {
         return token;
@@ -23,5 +24,13 @@ public class BotConfiguration {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public void setAdminId(Long adminId) {
+        this.adminId = adminId;
+    }
+
+    public Long getAdminId() {
+        return adminId;
     }
 }

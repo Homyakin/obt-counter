@@ -11,5 +11,6 @@ ru:
     gwent:
       telegram:
         bot:
+          admin-id: 210753724
           token: "stab"
           username: "stab"

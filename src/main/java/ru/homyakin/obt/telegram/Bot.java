@@ -21,6 +21,7 @@ public class Bot extends TelegramLongPollingBot {
     private final String token;
     private final String username;
     private Integer lastDate = null;
+    private final Long admin;
     private final List<String> answers = Arrays.asList(
         "Вы умудрились продержаться всего %s!!!! НИЧТОЖЕСТВА! ПОЕХАЛИ ЗАНОВО",
         "О БОЖЕ МОЙ! Неужели так трудно не говорить обо мне дольше чем %s!! Да поможет мне Мелитэле....",
@@ -36,10 +37,18 @@ public class Bot extends TelegramLongPollingBot {
         token = configuration.getToken();
         username = configuration.getUsername();
         random = new Random();
+        admin = configuration.getAdminId();
     }
 
     @Override
     public void onUpdateReceived(Update update) {
+        if (update.hasMessage() && update.getMessage().getChatId().equals(admin)) {
+            sendMessage(
+                new SendMessage()
+                    .setText("OK")
+                    .setChatId(admin)
+            );
+        }
         if (update.hasMessage() && !update.getMessage().isUserMessage() && update.getMessage().hasText()) {
             var message = update.getMessage();
             if (message.getChatId() != -1001090193716L) return;
