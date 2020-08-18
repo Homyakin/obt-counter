@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3307/gwent
+    password: 12345
+    username: root
+
+ru:
+  homyakin:
+    gwent:
+      telegram:
+        bot:
+          token: "stab"
+          username: "stab"

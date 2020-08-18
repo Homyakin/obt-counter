@@ -1,0 +1,6 @@
+.idea
+target/
+src/main/resources/application-dev.yml
+*.log
+*.iml
+database/gwent-db
