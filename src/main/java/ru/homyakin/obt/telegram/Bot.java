@@ -61,7 +61,7 @@ public class Bot extends TelegramLongPollingBot {
                     .setChatId(message.getChatId())
                     .setReplyToMessageId(message.getMessageId());
             } else {
-                if (message.getDate() - lastDate < 30) return;
+                if (message.getDate() - lastDate < 10 * 60) return;
                 send = new SendMessage()
                     .setText(String.format(
                         answers.get(random.nextInt(answers.size())),
